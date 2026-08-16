@@ -66,6 +66,17 @@ table Songs
 		formatString: 0
 		lineageTag: c1e09b18-87fe-4c2d-8c30-da3f4fddd2bd
 
+	measure 'Top Song Score' =
+			
+			VAR SongPopularity =
+			    MAX('Songs'[Popularity])
+			VAR TrackTieBreaker =
+			    MAX('Songs'[Track_ID])
+			RETURN
+			    SongPopularity * 100000 - TrackTieBreaker
+		formatString: 0
+		lineageTag: e0424001-fe18-4994-ae89-34c6f99b16cb
+
 	column Track_ID
 		dataType: int64
 		formatString: 0
@@ -285,6 +296,7 @@ table Songs
 	column Image
 		dataType: string
 		lineageTag: 58552c5d-4f3b-4973-91da-7cb15bc68c21
+		dataCategory: ImageUrl
 		summarizeBy: none
 		sourceColumn: Image
 
