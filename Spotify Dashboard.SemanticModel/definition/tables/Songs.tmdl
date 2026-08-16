@@ -8,6 +8,31 @@ table Songs
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Average Popularity' =
+			
+			AVERAGE('Songs'[Popularity])
+		lineageTag: 9a72c3da-0583-48fd-8591-32b9e7617548
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Duration (Minutes)' =
+			
+			AVERAGE('Songs'[Duration(Min)])
+		formatString: 0
+		lineageTag: 7d8ebfa8-1ef3-4695-a8d8-78e7c532857c
+
+	measure 'Total Artists' =
+			
+			DISTINCTCOUNT('Songs'[Artist])
+		formatString: 0
+		lineageTag: 0fc72b06-bec4-4e8f-aa90-f215d58291c7
+
+	measure 'Total Songs' =
+			
+			DISTINCTCOUNT('Songs'[Track_ID])
+		formatString: 0
+		lineageTag: 7b4fe37e-c717-4f41-8e4d-8a62d76315cd
+
 	column Track_ID
 		dataType: int64
 		formatString: 0
