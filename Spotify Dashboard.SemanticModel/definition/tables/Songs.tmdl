@@ -54,6 +54,18 @@ table Songs
 		formatString: 0
 		lineageTag: f92b6c5a-1173-4a7c-b806-57eeb3ae5957
 
+	measure Average_Loudness =
+			
+			AVERAGEX(
+			    'Songs',
+			    IFERROR(
+			        VALUE('Songs'[Loudness]),
+			        BLANK()
+			    )
+			)
+		formatString: 0
+		lineageTag: c1e09b18-87fe-4c2d-8c30-da3f4fddd2bd
+
 	column Track_ID
 		dataType: int64
 		formatString: 0
@@ -287,9 +299,10 @@ table Songs
 				else "Loud"),
 				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Tempo Level", each if [Tempo] < 90 then "Slow"
 				else if [Tempo] < 120 then "Moderate"
-				else "Fast")
+				else "Fast"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom4",{{"Loudness", type number}, {"Loudness Level", type text}})
 				in
-				    #"Added Custom4"
+				    #"Changed Type1"
 
 	annotation PBI_NavigationStepName = Navigation
 
