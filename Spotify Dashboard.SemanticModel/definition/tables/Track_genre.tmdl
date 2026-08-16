@@ -16,11 +16,11 @@ table Track_genre
 
 		annotation SummarizationSetBy = Automatic
 
-	column Genre
+	column 'genre.1'
 		dataType: string
-		lineageTag: 1475bb41-9eef-4759-a648-06f11164f942
+		lineageTag: 8deff864-e951-4282-9c3a-b21321a7aaed
 		summarizeBy: none
-		sourceColumn: Genre
+		sourceColumn: genre.1
 
 		annotation SummarizationSetBy = Automatic
 
@@ -36,9 +36,17 @@ table Track_genre
 				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Removed Duplicates", "Genre", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Genre.1", "Genre.2"}),
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Genre.1", type text}, {"Genre.2", type text}}),
 				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type1",{"Genre.2", "Key _Name"}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"Genre.1", "Genre"}})
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"Genre.1", "Genre"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "genre.1", each let
+				    g = Text.Lower(Text.Trim(Text.From([Genre])))
 				in
-				    #"Renamed Columns"
+				    if g = "hip" or g = "hop"
+				    then "Hip-Hop"
+				    else Text.Trim(Text.From([Genre]))),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Added Custom",{"Genre"}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Removed Columns2")
+				in
+				    #"Removed Duplicates1"
 
 	annotation PBI_NavigationStepName = Navigation
 
