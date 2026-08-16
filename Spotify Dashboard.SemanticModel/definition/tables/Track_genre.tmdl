@@ -24,6 +24,30 @@ table Track_genre
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Acousticness Level'
+		dataType: string
+		lineageTag: 1a791b6a-1e22-4edc-a6e1-aa3f670adc9a
+		summarizeBy: none
+		sourceColumn: Acousticness Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loudness Level'
+		dataType: string
+		lineageTag: c783e6a3-4c91-46f7-b40b-cd24d5ef46de
+		summarizeBy: none
+		sourceColumn: Loudness Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo Level'
+		dataType: string
+		lineageTag: a94358ed-85ad-4f41-896c-459b0341c6e2
+		summarizeBy: none
+		sourceColumn: Tempo Level
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Track_genre = m
 		mode: import
 		source =

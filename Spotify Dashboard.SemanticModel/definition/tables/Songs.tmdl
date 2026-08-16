@@ -238,6 +238,30 @@ table Songs
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Acousticness Level'
+		dataType: string
+		lineageTag: 4ad3d18b-1dd0-4396-94c9-b21d9254db24
+		summarizeBy: none
+		sourceColumn: Acousticness Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loudness Level'
+		dataType: string
+		lineageTag: 0efb8020-ac3d-45b1-9408-be2c55da21c0
+		summarizeBy: none
+		sourceColumn: Loudness Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo Level'
+		dataType: string
+		lineageTag: 7b954065-fa35-4317-b5a8-215c512ef26d
+		summarizeBy: none
+		sourceColumn: Tempo Level
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Songs = m
 		mode: import
 		source =
@@ -254,9 +278,18 @@ table Songs
 				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns1",{"Duration_ms"}),
 				    #"Added Custom1" = Table.AddColumn(#"Removed Columns", "Key _Name", each if [Key] = null or [Key] < 0 or [Key] > 11 then "Unknown"
 				else {"C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"}{[Key]}),
-				    #"Reordered Columns1" = Table.ReorderColumns(#"Added Custom1",{"Track_ID", "Artist", "Song", "Explicit", "Year", "Popularity", "Danceability", "Energy", "Mode", "Key", "Key _Name", "Loudness", "Speechiness", "Acousticness", "Instrumentalness", "Liveness", "Valence", "Tempo", "Genre", "Duration(Min)"})
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Added Custom1",{"Track_ID", "Artist", "Song", "Explicit", "Year", "Popularity", "Danceability", "Energy", "Mode", "Key", "Key _Name", "Loudness", "Speechiness", "Acousticness", "Instrumentalness", "Liveness", "Valence", "Tempo", "Genre", "Duration(Min)"}),
+				    #"Added Custom2" = Table.AddColumn(#"Reordered Columns1", "Acousticness Level", each if [Acousticness] < 0.33 then "Low"
+				else if [Acousticness] < 0.67 then "Medium"
+				else "High"),
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Loudness Level", each if [Loudness] < -8 then "Quiet"
+				else if [Loudness] < -5 then "Moderate"
+				else "Loud"),
+				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Tempo Level", each if [Tempo] < 90 then "Slow"
+				else if [Tempo] < 120 then "Moderate"
+				else "Fast")
 				in
-				    #"Reordered Columns1"
+				    #"Added Custom4"
 
 	annotation PBI_NavigationStepName = Navigation
 
