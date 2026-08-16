@@ -157,15 +157,6 @@ table Songs
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Mode
-		dataType: int64
-		formatString: 0
-		lineageTag: 46537ac4-4be7-4d0b-b311-1db7044da91a
-		summarizeBy: none
-		sourceColumn: Mode
-
-		annotation SummarizationSetBy = Automatic
-
 	column Speechiness
 		dataType: double
 		lineageTag: 2a2b30c1-e331-4787-a5bd-2b9a28f1bf75
@@ -274,6 +265,31 @@ table Songs
 
 		annotation SummarizationSetBy = Automatic
 
+	column Mode
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aeda81c-7a37-4d6c-a8a2-84425d4077b6
+		summarizeBy: none
+		sourceColumn: Mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column URL
+		dataType: string
+		lineageTag: f831ae1b-4d92-468d-8462-9d55123aecaa
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Image
+		dataType: string
+		lineageTag: 58552c5d-4f3b-4973-91da-7cb15bc68c21
+		summarizeBy: none
+		sourceColumn: Image
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Songs = m
 		mode: import
 		source =
@@ -300,9 +316,11 @@ table Songs
 				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Tempo Level", each if [Tempo] < 90 then "Slow"
 				else if [Tempo] < 120 then "Moderate"
 				else "Fast"),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom4",{{"Loudness", type number}, {"Loudness Level", type text}})
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom4",{{"Loudness", type number}, {"Loudness Level", type text}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Changed Type1", {"Track_ID"}, Song_covers, {"Track_id"}, "Song_covers", JoinKind.LeftOuter),
+				    #"Expanded Song_covers" = Table.ExpandTableColumn(#"Merged Queries", "Song_covers", {"URL", "Image"}, {"URL", "Image"})
 				in
-				    #"Changed Type1"
+				    #"Expanded Song_covers"
 
 	annotation PBI_NavigationStepName = Navigation
 

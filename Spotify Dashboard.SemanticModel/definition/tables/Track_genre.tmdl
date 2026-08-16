@@ -48,6 +48,22 @@ table Track_genre
 
 		annotation SummarizationSetBy = Automatic
 
+	column URL
+		dataType: string
+		lineageTag: 0c45c6f6-241d-4ba1-9820-e7d384eee6bd
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Image
+		dataType: string
+		lineageTag: 60127ae5-7889-42a6-b143-bf59ce47fc0e
+		summarizeBy: none
+		sourceColumn: Image
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Track_genre = m
 		mode: import
 		source =

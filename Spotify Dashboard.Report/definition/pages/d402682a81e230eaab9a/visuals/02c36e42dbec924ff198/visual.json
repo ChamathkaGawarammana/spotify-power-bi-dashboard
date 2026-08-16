@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "02c36e42dbec924ff198",
   "position": {
-    "x": 39.659298930392289,
-    "y": 467.23611552368419,
-    "z": 8502,
-    "height": 250.34932449810134,
-    "width": 328.42856926731116,
-    "tabOrder": 8001
+    "x": 173.48210007529605,
+    "y": 256.54322677801355,
+    "z": 7000,
+    "height": 240.77212677116847,
+    "width": 359.5810801560682,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -140,6 +140,17 @@
               "expr": {
                 "Literal": {
                   "Value": "10D"
+                }
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1FD662'"
+                    }
+                  }
                 }
               }
             }

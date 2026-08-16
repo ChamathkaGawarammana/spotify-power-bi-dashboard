@@ -2,3 +2,9 @@ relationship AutoDetected_a8301f09-a026-4379-925b-fbb641dd9709
 	fromColumn: Track_genre.Track_ID
 	toColumn: Songs.Track_ID
 
+relationship AutoDetected_cc28c06a-7736-47cd-8458-16a0ad79a681
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Song_covers.Track_id
+	toColumn: Songs.Track_ID
+

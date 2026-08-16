@@ -9,12 +9,13 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Songs","Track_genre"]
+annotation PBI_QueryOrder = ["Songs","Track_genre","Song_covers"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table Songs
 ref table Track_genre
+ref table Song_covers
 
 ref cultureInfo en-US
 

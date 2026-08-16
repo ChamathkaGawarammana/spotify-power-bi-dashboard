@@ -1,0 +1,59 @@
+table Song_covers
+	lineageTag: 432c0b1b-559c-48f8-8d80-1a73f36dd3b8
+
+	column Track_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 92e3241d-a3ab-4cf2-84e8-a9d3ab55ab0b
+		summarizeBy: none
+		sourceColumn: Track_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Song
+		dataType: string
+		lineageTag: aa981c2b-459f-4f87-8aef-6c7f0d1210e0
+		summarizeBy: none
+		sourceColumn: Song
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artist
+		dataType: string
+		lineageTag: 35a71efc-7caf-4cef-b44c-05406e00bed1
+		summarizeBy: none
+		sourceColumn: Artist
+
+		annotation SummarizationSetBy = Automatic
+
+	column URL
+		dataType: string
+		lineageTag: 61518dd0-bd56-4c25-b99f-ec4b43dad7e4
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Image
+		dataType: string
+		lineageTag: 28fbc5ea-047d-4a12-adda-b7f77d3b3bbd
+		summarizeBy: none
+		sourceColumn: Image
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Song_covers = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ASUS\Downloads\top5_song_covers.xlsx"), null, true),
+				    Top5CoverLookup_Table = Source{[Item="Top5CoverLookup",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Top5CoverLookup_Table,{{"track_id", Int64.Type}, {"song", type text}, {"artist", type text}, {"url", type text}, {"image", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"track_id", "Track_id"}, {"song", "Song"}, {"artist", "Artist"}, {"url", "URL"}, {"image", "Image"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

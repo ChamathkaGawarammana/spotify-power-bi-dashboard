@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "5dea243b5767251a8bff",
+  "name": "af94f45fd788575ca31e",
   "position": {
-    "x": 9.9956745265565754,
-    "y": 8.35344121170067,
-    "z": 8001,
-    "height": 40.898652021967052,
-    "width": 114.02048442487784,
-    "tabOrder": 1000
+    "x": 19.939449478766754,
+    "y": 2.6143286137801223,
+    "z": 10000,
+    "height": 39.061032863849761,
+    "width": 99.154929577464785,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Songs by Key",
+                    "value": "TOP SONGS",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "DIN",
-                      "fontSize": "12pt",
+                      "fontSize": "14pt",
                       "color": "#1fd662"
                     }
                   }
@@ -55,5 +55,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "b25b9a62bec1d823099c"
+  "parentGroupName": "467598d1b42eca628408"
 }
