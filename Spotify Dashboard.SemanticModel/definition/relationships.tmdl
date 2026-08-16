@@ -1,0 +1,4 @@
+relationship AutoDetected_a8301f09-a026-4379-925b-fbb641dd9709
+	fromColumn: Track_genre.Track_ID
+	toColumn: Songs.Track_ID
+

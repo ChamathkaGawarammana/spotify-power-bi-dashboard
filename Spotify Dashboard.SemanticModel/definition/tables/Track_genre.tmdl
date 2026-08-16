@@ -1,0 +1,45 @@
+table Track_genre
+	lineageTag: 2a25f40f-2f25-44ab-962e-258db003f68a
+
+	measure 'Track Count' =
+			
+			DISTINCTCOUNT(Track_genre[Track_ID])
+		formatString: 0
+		lineageTag: 2bd25c26-4244-462c-a981-18157916135f
+
+	column Track_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 365fb99e-6f5a-4e8a-ac41-9a923329872c
+		summarizeBy: none
+		sourceColumn: Track_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Genre.1'
+		dataType: string
+		lineageTag: 1475bb41-9eef-4759-a648-06f11164f942
+		summarizeBy: none
+		sourceColumn: Genre.1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Track_genre = m
+		mode: import
+		source =
+				let
+				    Source = Songs,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Artist", "Song", "Explicit", "Year", "Popularity", "Danceability", "Energy", "Key", "Loudness", "Mode", "Speechiness", "Acousticness", "Instrumentalness", "Liveness", "Valence", "Tempo", "Duration(Min)"}),
+				    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Removed Columns", {{"Genre", Splitter.SplitTextByDelimiter(" ", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Genre"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Genre", type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed Type"),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Removed Duplicates", "Genre", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Genre.1", "Genre.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Genre.1", type text}, {"Genre.2", type text}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type1",{"Genre.2", "Key _Name"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Spotify Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5e55e5c1-2df8-42e6-869e-f8cbdd40235d"
+  }
+}
