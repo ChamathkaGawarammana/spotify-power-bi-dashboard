@@ -6,7 +6,8 @@
     "y": 0,
     "z": 10000,
     "height": 220.60485030030711,
-    "width": 381.72075220502569
+    "width": 381.72075220502569,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "gauge",
@@ -189,5 +190,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "42a20a79a00922c11346"
+  "parentGroupName": "e307fed35e8a0263d421"
 }

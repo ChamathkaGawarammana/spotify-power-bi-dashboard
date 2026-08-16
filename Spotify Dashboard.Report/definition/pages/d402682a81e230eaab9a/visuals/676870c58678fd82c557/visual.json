@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 70.403516889032275,
     "width": 184.8694460914482,
-    "tabOrder": 5000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -56,6 +56,47 @@
                 "Literal": {
                   "Value": "1D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "s",
+                    "Entity": "Songs",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "s"
+                                }
+                              },
+                              "Property": "Key _Name"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'G#/Ab'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }
