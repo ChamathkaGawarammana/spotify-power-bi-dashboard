@@ -1,47 +1,52 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "554d9678ca8402ffb7cb",
+  "name": "055e98bc190a5e25438b",
   "position": {
-    "x": 2.9116226939649197,
-    "y": 30.692213957768104,
-    "z": 10000,
-    "height": 429.92556503538123,
-    "width": 282.572504879045,
-    "tabOrder": 0
+    "x": 698.995143648164,
+    "y": 234.23773430762947,
+    "z": 11000,
+    "height": 220.60485030030713,
+    "width": 254.06738377282562,
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Songs"
+                      "Entity": "Track_genre"
                     }
                   },
-                  "Property": "Image"
+                  "Property": "genre.1"
                 }
               },
-              "queryRef": "Songs.Image",
-              "nativeQueryRef": "Image"
-            },
+              "queryRef": "Track_genre.genre.1",
+              "nativeQueryRef": "genre.1",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Songs"
+                      "Entity": "Track_genre"
                     }
                   },
-                  "Property": "Song"
+                  "Property": "Track Count"
                 }
               },
-              "queryRef": "Songs.Song",
-              "nativeQueryRef": "Song"
+              "queryRef": "Track_genre.Track Count",
+              "nativeQueryRef": "Track Count"
             }
           ]
         }
@@ -50,13 +55,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Songs"
+                    "Entity": "Track_genre"
                   }
                 },
-                "Property": "Song"
+                "Property": "Track Count"
               }
             },
             "direction": "Ascending"
@@ -65,7 +70,7 @@
       }
     },
     "objects": {
-      "columnHeaders": [
+      "categoryAxis": [
         {
           "properties": {
             "fontFamily": {
@@ -78,120 +83,34 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
-            "backColor": {
+            "labelColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#151414'"
+                      "Value": "'#ffffff'"
                     }
                   }
                 }
               }
             },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#1FD662'"
-                    }
-                  }
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
           }
         }
       ],
-      "grid": [
+      "valueAxis": [
         {
           "properties": {
-            "gridHorizontal": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridHorizontalWeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "gridVertical": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "outlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#151414'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {
-            "fontColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFFFF'"
-                    }
-                  }
-                }
-              }
-            },
-            "backColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#151414'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontColorSecondary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFFFF'"
-                    }
-                  }
-                }
-              }
-            },
-            "backColorSecondary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#151414'"
-                    }
-                  }
-                }
-              }
-            },
             "fontFamily": {
               "expr": {
                 "Literal": {
@@ -199,17 +118,52 @@
                 }
               }
             },
-            "bold": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "wordWrap": {
+            "gridlineShow": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1fd662'"
+                    }
+                  }
                 }
               }
             }
@@ -218,6 +172,44 @@
       ]
     },
     "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Songs by Beat'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1fd662'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
       "background": [
         {
           "properties": {
@@ -234,36 +226,22 @@
             }
           }
         }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Default'"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "ae7a1f09da97e35e0d46",
   "filterConfig": {
     "filters": [
       {
-        "name": "e99fb0fa0d9481a78907",
+        "name": "6cdd07259840af781a84",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Songs"
+                "Entity": "Track_genre"
               }
             },
-            "Property": "Track_ID"
+            "Property": "genre.1"
           }
         },
         "type": "TopN",
@@ -278,8 +256,8 @@
                     "Version": 2,
                     "From": [
                       {
-                        "Name": "s",
-                        "Entity": "Songs",
+                        "Name": "t",
+                        "Entity": "Track_genre",
                         "Type": 0
                       }
                     ],
@@ -288,10 +266,10 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Source": "s"
+                              "Source": "t"
                             }
                           },
-                          "Property": "Track_ID"
+                          "Property": "genre.1"
                         },
                         "Name": "field"
                       }
@@ -303,10 +281,10 @@
                           "Measure": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "s"
+                                "Source": "t"
                               }
                             },
-                            "Property": "Top Song Score"
+                            "Property": "Track Count"
                           }
                         }
                       }
@@ -318,8 +296,8 @@
               "Type": 2
             },
             {
-              "Name": "s",
-              "Entity": "Songs",
+              "Name": "t",
+              "Entity": "Track_genre",
               "Type": 0
             }
           ],
@@ -332,10 +310,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "s"
+                            "Source": "t"
                           }
                         },
-                        "Property": "Track_ID"
+                        "Property": "genre.1"
                       }
                     }
                   ],
@@ -348,8 +326,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

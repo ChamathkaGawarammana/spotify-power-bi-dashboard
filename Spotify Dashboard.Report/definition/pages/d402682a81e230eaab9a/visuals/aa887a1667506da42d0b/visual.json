@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "af94f45fd788575ca31e",
+  "name": "aa887a1667506da42d0b",
   "position": {
-    "x": 61.3956454595496,
-    "y": 5.7028740915192593,
-    "z": 10000,
-    "height": 31.608800215889598,
-    "width": 162.25992014309537,
-    "tabOrder": 0
+    "x": 315.45979144490809,
+    "y": 190.7583117302656,
+    "z": 12000,
+    "height": 29.846538570041545,
+    "width": 66.260960760117669
   },
   "visual": {
     "visualType": "textbox",
@@ -19,12 +18,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "TOP SONGS",
+                    "value": "Minor",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "DIN",
-                      "fontSize": "14pt",
-                      "color": "#1fd662"
+                      "fontSize": "12pt",
+                      "color": "#ffffff"
                     }
                   }
                 ]
@@ -55,5 +54,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "7a258b149fa70585508c"
+  "parentGroupName": "42a20a79a00922c11346"
 }

@@ -54,7 +54,7 @@ table Songs
 		formatString: 0
 		lineageTag: f92b6c5a-1173-4a7c-b806-57eeb3ae5957
 
-	measure Average_Loudness =
+	measure 'Average Loudness' =
 			
 			AVERAGEX(
 			    'Songs',
@@ -63,7 +63,7 @@ table Songs
 			        BLANK()
 			    )
 			)
-		formatString: 0
+		formatString: 0.00
 		lineageTag: c1e09b18-87fe-4c2d-8c30-da3f4fddd2bd
 
 	measure 'Top Song Score' =
@@ -76,6 +76,16 @@ table Songs
 			    SongPopularity * 100000 - TrackTieBreaker
 		formatString: 0
 		lineageTag: e0424001-fe18-4994-ae89-34c6f99b16cb
+
+	measure 'Major Mode Percentage' =
+			
+			AVERAGE('Songs'[Mode])
+		formatString: 0%;-0%;0%
+		lineageTag: 6ca9f2b6-6d3b-40c5-b797-293db2347ac9
+
+	measure 'Gauge Maximum' = 1
+		formatString: 0
+		lineageTag: 1042e362-ba84-4d33-b5d0-83e49bd4a600
 
 	column Track_ID
 		dataType: int64

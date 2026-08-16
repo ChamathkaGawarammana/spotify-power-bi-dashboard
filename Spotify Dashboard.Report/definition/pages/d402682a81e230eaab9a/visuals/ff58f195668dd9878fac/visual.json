@@ -1,19 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "583c0971012611f901e0",
+  "name": "ff58f195668dd9878fac",
   "position": {
-    "x": 702.7132029228884,
-    "y": 105.34501278385453,
-    "z": 4000,
-    "height": 118.97789679117687,
-    "width": 250.34932449810134,
-    "tabOrder": 3000
+    "x": 0,
+    "y": 0,
+    "z": 10000,
+    "height": 220.60485030030711,
+    "width": 381.72075220502569
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "gauge",
     "query": {
       "queryState": {
-        "Values": {
+        "MaxValue": {
           "projections": [
             {
               "field": {
@@ -23,11 +22,29 @@
                       "Entity": "Songs"
                     }
                   },
-                  "Property": "Average Tempo"
+                  "Property": "Gauge Maximum"
                 }
               },
-              "queryRef": "Songs.Average Tempo",
-              "nativeQueryRef": "Average Tempo"
+              "queryRef": "Songs.Gauge Maximum",
+              "nativeQueryRef": "Gauge Maximum"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Songs"
+                    }
+                  },
+                  "Property": "Major Mode Percentage"
+                }
+              },
+              "queryRef": "Songs.Major Mode Percentage",
+              "nativeQueryRef": "Major Mode Percentage"
             }
           ]
         }
@@ -42,7 +59,7 @@
                     "Entity": "Songs"
                   }
                 },
-                "Property": "Average Tempo"
+                "Property": "Major Mode Percentage"
               }
             },
             "direction": "Descending"
@@ -55,14 +72,51 @@
       "labels": [
         {
           "properties": {
-            "fontSize": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "54D"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "target": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
                 }
               }
             },
             "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
               "solid": {
                 "color": {
                   "expr": {
@@ -72,18 +126,11 @@
                   }
                 }
               }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
             }
           }
         }
       ],
-      "categoryLabels": [
+      "calloutValue": [
         {
           "properties": {
             "color": {
@@ -109,6 +156,19 @@
       ]
     },
     "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "background": [
         {
           "properties": {
@@ -128,5 +188,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "42a20a79a00922c11346"
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "583c0971012611f901e0",
+  "name": "46de53863d4c5dff6c21",
   "position": {
-    "x": 702.7132029228884,
+    "x": 458.56064388266088,
     "y": 105.34501278385453,
-    "z": 4000,
+    "z": 11001,
     "height": 118.97789679117687,
-    "width": 250.34932449810134,
-    "tabOrder": 3000
+    "width": 229.28032194133044,
+    "tabOrder": 8001
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "Songs"
                     }
                   },
-                  "Property": "Average Tempo"
+                  "Property": "Average Loudness"
                 }
               },
-              "queryRef": "Songs.Average Tempo",
-              "nativeQueryRef": "Average Tempo"
+              "queryRef": "Songs.Average_Loudness",
+              "nativeQueryRef": "Average Loudness"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "Songs"
                   }
                 },
-                "Property": "Average Tempo"
+                "Property": "Average Loudness"
               }
             },
             "direction": "Descending"

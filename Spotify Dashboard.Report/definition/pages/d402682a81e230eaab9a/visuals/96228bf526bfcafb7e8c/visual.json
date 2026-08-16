@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "96228bf526bfcafb7e8c",
   "position": {
-    "x": 624.63395815367858,
-    "y": 457.32129079108614,
-    "z": 9000,
-    "height": 228.04096884975567,
+    "x": 648.18166689359907,
+    "y": 465.99676243210945,
+    "z": 8000,
+    "height": 230.51967503290521,
     "width": 304.88086052739072,
     "tabOrder": 7000
   },
@@ -60,11 +60,11 @@
                       "Entity": "Songs"
                     }
                   },
-                  "Property": "Average_Loudness"
+                  "Property": "Average Loudness"
                 }
               },
               "queryRef": "Songs.Average_Loudness",
-              "nativeQueryRef": "Average_Loudness"
+              "nativeQueryRef": "Average Loudness"
             }
           ]
         }
@@ -119,11 +119,18 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "secRoundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "roundRange": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -153,6 +160,20 @@
                   "Value": "false"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
             }
           }
         }
@@ -163,7 +184,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -274,6 +295,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Average Popularity  by Loudness Level'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
