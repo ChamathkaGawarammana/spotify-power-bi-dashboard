@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "2c9f84b9eb2ec8159c6a",
+  "name": "676870c58678fd82c557",
   "position": {
     "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 71.683580832469232,
+    "y": 70.403516889032289,
+    "z": 4000,
+    "height": 70.403516889032275,
     "width": 184.8694460914482
   },
   "visual": {
@@ -22,11 +22,11 @@
                       "Entity": "Songs"
                     }
                   },
-                  "Property": "Year"
+                  "Property": "Key _Name"
                 }
               },
-              "queryRef": "Songs.Year",
-              "nativeQueryRef": "Year",
+              "queryRef": "Songs.Key _Name",
+              "nativeQueryRef": "Key _Name",
               "active": true
             }
           ]
@@ -60,22 +60,16 @@
           }
         }
       ],
-      "header": [
+      "items": [
         {
           "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#1FD662'"
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
                     }
                   }
                 }
@@ -91,11 +85,21 @@
                   }
                 }
               }
-            },
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1FD662'"
+                    }
+                  }
                 }
               }
             },
@@ -105,17 +109,29 @@
                   "Value": "true"
                 }
               }
-            }
-          }
-        }
-      ],
-      "pendingChangesIcon": [
-        {
-          "properties": {
-            "show": {
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B1A1A'"
+                    }
+                  }
+                }
+              }
+            },
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Chord'"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
                 }
               }
             }
@@ -139,48 +155,19 @@
             }
           }
         }
-      ],
-      "items": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#252423'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
       "background": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "color": {
               "solid": {
                 "color": {
@@ -189,13 +176,6 @@
                       "Value": "'#1B1A1A'"
                     }
                   }
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }

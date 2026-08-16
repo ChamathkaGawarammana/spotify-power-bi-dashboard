@@ -33,6 +33,27 @@ table Songs
 		formatString: 0
 		lineageTag: 7b4fe37e-c717-4f41-8e4d-8a62d76315cd
 
+	measure 'Average Tempo' = AVERAGE(Songs[Tempo])
+		lineageTag: ae80d953-1456-4ae2-85d4-7b9f68ce684a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TopN Popularity Sort' =
+			
+			VAR PopularityValue = MAX('Songs'[Popularity])
+			VAR TrackValue = MIN('Songs'[Track_ID])
+			RETURN
+			    PopularityValue + DIVIDE(1, 1000000 + TrackValue)
+		lineageTag: 71b12304-28eb-4af6-a5a5-9206c7b4a85c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Songs by Key' =
+			
+			DISTINCTCOUNT('Songs'[Track_ID])
+		formatString: 0
+		lineageTag: f92b6c5a-1173-4a7c-b806-57eeb3ae5957
+
 	column Track_ID
 		dataType: int64
 		formatString: 0

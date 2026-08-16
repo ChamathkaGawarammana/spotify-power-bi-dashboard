@@ -16,11 +16,11 @@ table Track_genre
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Genre.1'
+	column Genre
 		dataType: string
 		lineageTag: 1475bb41-9eef-4759-a648-06f11164f942
 		summarizeBy: none
-		sourceColumn: Genre.1
+		sourceColumn: Genre
 
 		annotation SummarizationSetBy = Automatic
 
@@ -35,9 +35,10 @@ table Track_genre
 				    #"Removed Duplicates" = Table.Distinct(#"Changed Type"),
 				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Removed Duplicates", "Genre", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), {"Genre.1", "Genre.2"}),
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Genre.1", type text}, {"Genre.2", type text}}),
-				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type1",{"Genre.2", "Key _Name"})
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type1",{"Genre.2", "Key _Name"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"Genre.1", "Genre"}})
 				in
-				    #"Removed Columns1"
+				    #"Renamed Columns"
 
 	annotation PBI_NavigationStepName = Navigation
 

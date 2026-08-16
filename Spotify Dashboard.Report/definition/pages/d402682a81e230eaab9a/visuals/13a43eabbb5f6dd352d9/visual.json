@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "d5dd501798fa23cc14a9",
+  "name": "13a43eabbb5f6dd352d9",
   "position": {
-    "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 140.27397260273972,
-    "width": 401.93888303477343,
+    "x": 6.555064422082288,
+    "y": 27.116979356584149,
+    "z": 8000,
+    "height": 98.27501029230136,
+    "width": 286.10928242264657,
     "tabOrder": 0
   },
   "visual": {
@@ -20,7 +20,7 @@
                 "name": {
                   "expr": {
                     "Literal": {
-                      "Value": "'ChatGPT Image Aug 16, 2026, 08_28_50 AM (1).png'"
+                      "Value": "'ChatGPT Image Aug 16, 2026, 10_38_51 AM.png'"
                     }
                   }
                 },
@@ -29,7 +29,7 @@
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
-                      "ItemName": "ChatGPT_Image_Aug_16,_2026,_0868471256218171.png"
+                      "ItemName": "ChatGPT_Image_Aug_16,_2026,_108806595731796101.png"
                     }
                   }
                 },
@@ -46,21 +46,7 @@
         }
       ]
     },
-    "visualContainerObjects": {
-      "visualLink": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "842feb6ae38a75f12a8a"
 }

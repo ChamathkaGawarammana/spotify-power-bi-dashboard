@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "de6fe1b28b455abb3b85",
+  "name": "315405a3dd264ca52912",
   "position": {
-    "x": 336.66666666666669,
+    "x": 145.55555555555554,
     "y": 115.55555555555556,
-    "z": 2000,
+    "z": 3000,
     "height": 119,
     "width": 171,
-    "tabOrder": 2000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "Songs"
                     }
                   },
-                  "Property": "Total Songs"
+                  "Property": "Total Artists"
                 }
               },
-              "queryRef": "Songs.Total Songs",
-              "nativeQueryRef": "Total Songs"
+              "queryRef": "Songs.Total Artists",
+              "nativeQueryRef": "Total Artists"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "Songs"
                   }
                 },
-                "Property": "Total Songs"
+                "Property": "Total Artists"
               }
             },
             "direction": "Descending"
@@ -62,6 +62,13 @@
                 }
               }
             },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "color": {
               "solid": {
                 "color": {
@@ -70,13 +77,6 @@
                       "Value": "'#1FD662'"
                     }
                   }
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             },
